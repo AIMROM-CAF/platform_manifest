@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="github"
+          fetch="https://github.com" />
+
+  <remote name="private"
+          fetch="ssh://git@github.com" />
+
+  <remote name="caf_system"
+          fetch="https://source.codeaurora.org/quic/la"
+          review="codeaurora.org"
+          revision="refs/tags/LA.QSSI.11.0.r1-06300-qssi.0" />
+
+  <remote name="caf_vendor"
+          fetch="https://source.codeaurora.org/quic/la"
+          review="codeaurora.org"
+          revision="refs/tags/LA.UM.9.12.r1-08300-SMxx50.0"/>
+
+  <default remote="caf_system"/>
+
+  <remote name="aim"
+          fetch="https://github.com/AIMROM-CAF"
+          revision="11x" />
+
+  <!-- Includes -->
+  <include name="snippets/aim.xml" />
+  <include name="snippets/remove.xml" />
+  <include name="snippets/system.xml" />
+  <include name="snippets/vendor.xml" />
+</manifest>

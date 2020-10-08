@@ -1,0 +1,96 @@
+<img src="https://raw.githubusercontent.com/AIMROM/manifest/N/logo.png">
+
+Aim Rom CAF Android 11 WIP 
+========
+
+[![](https://github.com/AIMROM/manifest/raw/o/tg.png)](https://t.me/joinchat/AAAAAEGlvThIxMq8yPB1JA)
+
+Getting Started
+---------------
+To get started with the building process, you'll need to get familiar with [Git and Repo](http://source.android.com/source/using-repo.html).
+
+To initialize your local repository, use a command like this:
+
+Make directory for the repo binary
+
+  ```bash
+  $ mkdir ~/bin
+ ```
+
+Add directory for the repo binary to its path
+
+  ```bash
+  $ PATH=~/bin:$PATH
+  
+  ```
+  
+Downloading repo binary and placing it in the proper directory
+
+```bash
+  $ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+```
+
+Giving the repo binary the proper permissions
+
+```bash
+  $ chmod a+x ~/bin/repo
+```
+Creating directory for where the aimrom repo will be stored and synced
+
+```bash
+   $ mkdir aim
+   $ cd aim
+```
+Now init repo
+
+```bash
+    repo init -u git://github.com/AIMROM-CAF/platform_manifest.git -b 11x
+```
+
+Then to sync up:
+
+```bash
+    repo sync  -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+```
+Additionally, you can define the number of parallel download repo should do:
+
+```bash
+    repo sync -jX -f --force-sync --no-clone-bundle --no-tags
+```
+
+While X being the number of parallel downloads
+
+ Building The Project
+ ----------------------------------
+
+From root directory of AIM type following commands in terminal
+
+```bash
+	. build/envsetup.sh
+   
+    lunch aim_$devicecodename-$BuildType
+   
+	brunch $devicecodename
+```
+
+Example
+---------------
+
+If your device code name is "goldfish", then:
+
+```bash
+	. build/envsetup.sh
+
+    lunch aim_goldfish-userdebug
+
+	brunch goldfish
+```
+
+Obtaining the compiled zip
+----------------------------------------------
+
+From the root directory of AIM type following commands in the terminal
+
+```bash
+	cd $OUT/target/product/$devicecodename/$AIM*.zip
+```	
